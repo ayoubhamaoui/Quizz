@@ -21,7 +21,23 @@ namespace quizz.Models
             }
         }
 
-        //add new employee record
+        public IEnumerable<Questions> GetQuestions(string IdQuizz)
+        {
+            try
+            {
+                 var qt = (from q in db.Questions
+                                   where q.IdQuizz == IdQuizz
+                                   select q
+                                   );
+                return qt;
+            }
+            catch
+            {
+                throw;
+            }
+        }
+
+        //add new Question record
         public int AddQuestion(Questions qt)
         {
             try
@@ -35,5 +51,6 @@ namespace quizz.Models
                 throw;
             }
         }
+
     }
 }

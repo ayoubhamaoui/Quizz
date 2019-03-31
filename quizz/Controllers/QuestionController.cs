@@ -19,6 +19,13 @@ namespace quizz.Controllers
             return objQuestions.GetAllQuestions().ToList();
         }
 
+        [HttpGet]
+        [Route("api/Employee/Details/{IdQuizz}")]
+        public IEnumerable<Questions> Details(string IdQuizz)
+        {
+            return objQuestions.GetQuestions(IdQuizz).ToList();
+        }
+
         // POST api/<controller>
         [HttpPost]
         [Route("api/Employee/Create")]
