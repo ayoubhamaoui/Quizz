@@ -20,7 +20,7 @@ namespace quizz.Controllers
         }
 
         [HttpGet]
-        [Route("api/Employee/Details/{IdQuizz}")]
+        [Route("api/Questions/Details/{IdQuizz}")]
         public IEnumerable<Questions> Details(string IdQuizz)
         {
             return objQuestions.GetQuestions(IdQuizz).ToList();
