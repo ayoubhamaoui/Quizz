@@ -52,5 +52,14 @@ namespace quizz.Models
             }
         }
 
+        //get list of quizz
+        public List<Quizz> GetQuizzs()
+        {
+            List<Quizz> lstQz = new List<Quizz>();
+            lstQz = (from qz in db.Quizz select qz).ToList();
+
+            return lstQz;
+        }
+
     }
 }

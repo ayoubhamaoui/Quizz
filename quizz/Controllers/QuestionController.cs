@@ -13,14 +13,14 @@ namespace quizz.Controllers
 
         // GET: api/<controller>
         [HttpGet]
-        [Route("api/questions/Index")]
+        [Route("api/questions/index")]
         public IEnumerable<Questions> Index()
         {
             return objQuestions.GetAllQuestions().ToList();
         }
 
         [HttpGet]
-        [Route("api/Questions/Details/{IdQuizz}")]
+        [Route("api/questions/details/{IdQuizz}")]
         public IEnumerable<Questions> Details(string IdQuizz)
         {
             return objQuestions.GetQuestions(IdQuizz).ToList();
@@ -28,10 +28,18 @@ namespace quizz.Controllers
 
         // POST api/<controller>
         [HttpPost]
-        [Route("api/Employee/Create")]
+        [Route("api/question/create")]
         public int Create(Questions qt)
         {
             return objQuestions.AddQuestion(qt);
+        }
+
+        // get quizz list
+        [HttpGet]
+        [Route("api/question/getQuizzList")]
+        public IEnumerable<Quizz> Details()
+        {
+            return objQuestions.GetQuizzs();
         }
     }
 }
