@@ -6,30 +6,13 @@ export class Questions extends Component {
     constructor(props) {
         super(props);
         this.state = { forecasts: [], loading: true, data:[] };
-        this.state.data.push({
-            "a": "hamaoui",
-            "answer": "a",
-            "b": "hamui",
-            "c": "hamawi",
-            "d": "hmaoui",
-            "idQuizz": "CSharp",
-            "idquestion": "CSharp4",
-            "poid": 3,
-            "question": "le nom de Ayoub?"
-        });
+        
         console.log(this.state.data);
         fetch('api/Questions/Details/CSharp')
             .then(response => response.json())
             .then(data => {
                 this.setState({ forecasts: data, loading: false });
             });
-        fetch('api/question/create', {
-            method: 'POST',
-            body: this.state.data,
-        }).then((response) => response.json())
-            .then((responseJson) => {
-                console.log(this.state.data);
-            })
     }
 
     static renderForecastsTable(forecasts) {
